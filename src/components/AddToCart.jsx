@@ -3,8 +3,7 @@ import cartIcon from '../assets/icon-add-to-cart.svg'
 import cartPlus from '../assets/icon-increment-quantity.svg'
 import cartMinus from '../assets/icon-decrement-quantity.svg'
 
-export default function AddToCart() {
-  const [count, setCount] = useState(0)
+export default function AddToCart({ count, setCount }) {
 
   const cartBtn = (
     <button
@@ -37,9 +36,9 @@ export default function AddToCart() {
         className='flex items-center justify-center border border-white rounded-full w-[17.5px] h-[17.5px]'
         onClick={func}
       >
-        <img 
-          src={icon} 
-          alt={alt} 
+        <img
+          src={icon}
+          alt={alt}
           className='hover:fill-[#C73B0F]'
         />
       </button>

@@ -1,10 +1,11 @@
-import AddToCart from "./components/AddToCart"
+import data from "./data.json"
+import Products from "./components/Products"
 
 function App() {
 
   return (
     <>
-      <AddToCart />
+      <Products data={data} />
     </>
   )
 }
