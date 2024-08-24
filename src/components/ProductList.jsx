@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddToCart from "./AddToCart";
 
 export default function ProductList({
@@ -6,16 +6,21 @@ export default function ProductList({
   name,
   category,
   price,
-  addToCart
+  addToCart,
+  removeFromCart
 }) {
 
   const [count, setCount] = useState(0)
 
-  function handleCart(newCount) {
-    addToCart({
-      price, name, count: newCount
-    })
-  }
+  useEffect(() => {
+    if (count > 0) {
+      addToCart({
+        price, name, count
+      });
+    } else {
+      removeFromCart(name)
+    }
+  }, [count]);
 
 
   return (
@@ -48,7 +53,7 @@ export default function ProductList({
         <div
           className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
         >
-          <AddToCart count={count} setCount={setCount} onAddToCart={handleCart} />
+          <AddToCart count={count} setCount={setCount} />
         </div>
       </div>
       <div>

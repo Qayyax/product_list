@@ -2,7 +2,7 @@ import cartIcon from '../assets/icon-add-to-cart.svg'
 import cartPlus from '../assets/icon-increment-quantity.svg'
 import cartMinus from '../assets/icon-decrement-quantity.svg'
 
-export default function AddToCart({ count, setCount, onAddToCart }) {
+export default function AddToCart({ count, setCount }) {
 
   const cartBtn = (
     <button
@@ -10,7 +10,6 @@ export default function AddToCart({ count, setCount, onAddToCart }) {
       p-3 hover:border-[#C73B0F]  hover:text-[#C73B0F]'
       onClick={() => {
         setCount(1)
-        onAddToCart(1)
       }}
     >
       <img
@@ -48,22 +47,15 @@ export default function AddToCart({ count, setCount, onAddToCart }) {
   }
 
   function addCount() {
-    setCount(prev => {
-      const newCount = prev + 1;
-      onAddToCart(newCount);
-      return newCount;
-    });
+    setCount(prev => prev + 1)
   }
 
   function minusCount() {
     setCount(prev => {
       if (prev > 0) {
-        const newCount = prev - 1;
-        onAddToCart(newCount);
-        return newCount;
+        return prev - 1;
       }
-      return prev;
-    });
+    })
   }
 
   return (

@@ -1,8 +1,8 @@
 import ProductList from "./ProductList";
 
-export default function Products({ data, addToCart }) {
+export default function Products({ data, addToCart, removeFromCart }) {
   return (
-    <div className="flex flex-col items-center justify-center p-6 gap-y-6 bg-[#FCF8F6]">
+    <div className="">
       {data.map((item, key) => (
         <ProductList
           key={key}
@@ -11,6 +11,7 @@ export default function Products({ data, addToCart }) {
           category={item.category}
           price={item.price}
           addToCart={addToCart}
+          removeFromCart={removeFromCart}
         />
       ))}
     </div>
