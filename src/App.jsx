@@ -1,11 +1,11 @@
 import data from "./data.json"
-import Products from "./components/Products"
+import Shop from "./components/Shop"
 
 function App() {
 
   return (
     <>
-      <Products data={data} />
+      <Shop data={data} />
     </>
   )
 }

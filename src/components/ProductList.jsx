@@ -5,13 +5,18 @@ export default function ProductList({
   image,
   name,
   category,
-  price
+  price,
+  addToCart
 }) {
 
   const [count, setCount] = useState(0)
-  if (count > 0) {
-    console.log(count)
+
+  function handleCart(newCount) {
+    addToCart({
+      price, name, count: newCount
+    })
   }
+
 
   return (
     <div
@@ -43,7 +48,7 @@ export default function ProductList({
         <div
           className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
         >
-          <AddToCart count={count} setCount={setCount} />
+          <AddToCart count={count} setCount={setCount} onAddToCart={handleCart} />
         </div>
       </div>
       <div>

@@ -1,15 +1,17 @@
-import { useState } from 'react'
 import cartIcon from '../assets/icon-add-to-cart.svg'
 import cartPlus from '../assets/icon-increment-quantity.svg'
 import cartMinus from '../assets/icon-decrement-quantity.svg'
 
-export default function AddToCart({ count, setCount }) {
+export default function AddToCart({ count, setCount, onAddToCart }) {
 
   const cartBtn = (
     <button
       className='flex gap-x-2 px-4 rounded-3xl bg-white border border-[#AD8A85] max-w-[160px]
       p-3 hover:border-[#C73B0F]  hover:text-[#C73B0F]'
-      onClick={() => setCount(1)}
+      onClick={() => {
+        setCount(1)
+        onAddToCart(1)
+      }}
     >
       <img
         src={cartIcon}
@@ -46,13 +48,22 @@ export default function AddToCart({ count, setCount }) {
   }
 
   function addCount() {
-    setCount(prev => prev + 1)
+    setCount(prev => {
+      const newCount = prev + 1;
+      onAddToCart(newCount);
+      return newCount;
+    });
   }
 
   function minusCount() {
-    if (count >= 0) {
-      setCount(prev => prev - 1)
-    }
+    setCount(prev => {
+      if (prev > 0) {
+        const newCount = prev - 1;
+        onAddToCart(newCount);
+        return newCount;
+      }
+      return prev;
+    });
   }
 
   return (
