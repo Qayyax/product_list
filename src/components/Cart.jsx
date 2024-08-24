@@ -1,18 +1,13 @@
 import carbonIcon from "../assets/icon-carbon-neutral.svg"
+import emptyCart from "../assets/illustration-empty-cart.svg"
 import CartItem from "./CartItem"
 
 export default function Cart({ cartItems, removeFromCart }) {
   const totalUnits = cartItems.reduce((sum, item) => sum + item.count, 0);
   const totalAmount = cartItems.reduce((sum, item) => sum + (item.price * item.count), 0);
 
-  return (
-    <div
-      className="flex flex-col p-6 bg-white rounded-lg gap-y-6 w-full"
-    >
-      <h1
-        className="text-[#C73B0F] font-bold text-[1.5em]"
-      >Your Cart ({totalUnits})</h1>
-
+  const showCart = (
+    <>
       <div>
         {
           cartItems.map((item, key) => (
@@ -54,6 +49,32 @@ export default function Cart({ cartItems, removeFromCart }) {
       >
         Confirm Order
       </button>
+    </>
+  )
+
+  const cartEmpty = (
+    <div
+      className="flex flex-col items-center justify-center"
+    >
+      <img src={emptyCart} alt="Empty Cart" />
+      <p
+        className="text-[#87635A] font-semibold text-[0.875em]"
+      >Your added items will appear here</p>
+    </div>
+  )
+
+  return (
+    <div
+      className="flex flex-col p-6 bg-white rounded-lg gap-y-6 w-full"
+    >
+      <h1
+        className="text-[#C73B0F] font-bold text-[1.5em]"
+      >Your Cart ({totalUnits})</h1>
+      {totalUnits < 1 ? (
+        cartEmpty
+      ) : (
+        showCart
+      )}
     </div>
   )
 }
