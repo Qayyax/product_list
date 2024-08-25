@@ -6,7 +6,7 @@ export default function AddToCart({ count, setCount }) {
 
   const cartBtn = (
     <button
-      className='flex gap-x-2 px-4 rounded-3xl bg-white border border-[#AD8A85] max-w-[160px]
+      className='flex items-center justify-center gap-x-2 px-4 rounded-3xl bg-white border border-[#AD8A85] w-[160px]
       p-3 hover:border-[#C73B0F]  hover:text-[#C73B0F]'
       onClick={() => {
         setCount(1)
@@ -16,13 +16,15 @@ export default function AddToCart({ count, setCount }) {
         src={cartIcon}
         alt="add to cart icon"
       />
-      <p>Add to Cart</p>
+      <p
+        className='text-[#260F08] text-[14px] font-semibold whitespace-nowrap'
+      >Add to Cart</p>
     </button>
   )
 
   const cartAddItemBtn = (
     <div
-      className='flex items-center justify-between bg-[#C73B0F] gap-x-10 rounded-3xl p-3 text-white max-w-[160px]'
+      className='flex items-center justify-between bg-[#C73B0F] gap-x-10 rounded-3xl p-3 text-white w-[160px]'
     >
       {btn(cartMinus, "remove item from cart button", minusCount)}
       <span>{count}</span>

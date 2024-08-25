@@ -26,7 +26,8 @@ export default function Shop({ data }) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center p-6 gap-y-6 bg-[#FCF8F6]">
+    <div className="flex flex-col w-full p-9 bg-[#FCF8F6] items-center justify-center
+      gap-y-8 lg:flex-row lg:items-start lg:gap-x-8 lg:px-28">
       <Products data={data} addToCart={addItemToCart} removeFromCart={removeItemFromCart} />
       <Cart cartItems={cartItems} removeFromCart={removeItemFromCart} />
     </div>

@@ -65,7 +65,7 @@ export default function Cart({ cartItems, removeFromCart }) {
 
   return (
     <div
-      className="flex flex-col p-6 bg-white rounded-lg gap-y-6 w-full"
+      className="flex flex-col p-6 bg-white rounded-lg gap-y-6 w-full lg:w-[384px] lg:whitespace-nowrap"
     >
       <h1
         className="text-[#C73B0F] font-bold text-[1.5em]"
