@@ -3,7 +3,7 @@ import ProductList from "./ProductList";
 export default function Products({ data, addToCart, removeFromCart }) {
   return (
     <div
-      className="flex flex-col items-start "
+      className="flex flex-col items-center "
     >
       <h1
         className="text-[#260F08] font-bold text-[40px]"
